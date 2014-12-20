@@ -1,0 +1,32 @@
+set ignorecase
+set smartcase
+
+nnoremap <C-a> 0
+nnoremap <C-e> :LineEnd<CR>
+nnoremap <C-f> <Right>
+nnoremap <C-b> <Left>
+nnoremap <C-u> 20<Up>
+nnoremap <C-d> 20<Down>
+
+
+nnoremap U :Redo<CR>
+nnoremap mj :AddJavaDocComment<CR>
+nnoremap mi :OrganizeImports<CR>
+
+inoremap jj <ESC>
+inoremap <C-h> <BS>
+inoremap <C-a> <Esc>0i
+inoremap <C-e> <Esc>:LineEnd<CR>a
+inoremap <C-f> <Esc><Right>a
+inoremap <C-b> <Esc>i
+inoremap <C-d> <Esc><Right>xi
+
+inoremap <C-w> <ESC>:DeletePreviousWord<CR>i
+inoremap <C-k> <Esc><Right>:DeleteLineToEnd<CR>a
+inoremap <C-u> <Esc>:DeleteLineToBeginning<CR>i
+
+inoremap <C-u> <C-g>u<C-u>
+noremap <C-u> <C-g>u<C-u>
+noremap <C-w> <C-g>u<C-w>
+
+vnoremap = :Format<CR>

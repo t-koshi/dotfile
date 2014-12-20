@@ -1,0 +1,8 @@
+remove Lock = Henkan_Mode NoSymbol Henkan_Mode
+keycode 100 = Escape NoSymbol Escape
+add control = Muhenkan
+add control = Eisu_toggle
+
+remove Lock = Caps_Lock
+keysym Caps_Lock = Control_L
+add Control = Control_L
