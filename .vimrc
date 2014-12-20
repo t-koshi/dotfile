@@ -32,7 +32,6 @@ let g:syntastic_ruby_checkers = ['rubocop']
 filetype plugin indent on     " required!
 filetype indent on
 syntax on
-
 set expandtab "タブ入力を複数の空白入力に置き換える
 set tabstop=2 "画面上でタブ文字が占める幅
 set shiftwidth=2 "自動インデントでずれる幅
