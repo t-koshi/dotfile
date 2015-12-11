@@ -17,14 +17,7 @@ set nocompatible
 set wildmode=longest:full,list
 
 
-if has('vim_starting')
-  set runtimepath+=~/Dropbox/dotfile/.vim/bundle/neobundle.vim
-  "call neobundle#rc(expand('/home/greapflute/Dropbox/dotfile/.vim/bundle/'))
-  call neobundle#rc(expand('~/Dropbox/dotfile/.vim/bundle/'))
-endif
-NeoBundle 'mattn/emmet-vim'
 
-NeoBundle 'scrooloose/syntastic'
 let g:syntastic_mode_map = { 'mode': 'passive',
             \ 'active_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers = ['rubocop']
@@ -101,7 +94,6 @@ inoremap " ""<Left>
 inoremap ' ''<Left>
 inoremap <> <><Left>
 
-NeoBundle 'vim-scripts/buftabs'
 "buftabs
 " バッファタブにパスを省略してファイル名のみ表示する
 let g:buftabs_only_basename=1
@@ -114,118 +106,17 @@ set statusline=%=\ [%{(&fenc!=''?&fenc:&enc)}/%{&ff}]\[%Y]\[%04l,%04v][%p%%]
 " ステータスラインを常に表示
 set laststatus=2
 
-NeoBundle 'Shougo/vimfiler.vim'
-NeoBundle 'Shougo/unite.vim'
 let g:vimfiler_as_default_explorer=1
 
 let g:molokai_original = 1
 let g:rehash256 = 1
 
 " インデントに色を付けて見やすくする
-NeoBundle 'nathanaelkane/vim-indent-guides'
 " vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
 let g:indent_guides_enable_on_vim_startup = 1
 
 
 " コメントON/OFFを手軽に実行
-NeoBundle 'tomtom/tcomment_vim'
-
-"Ruby=================================================="
-" Ruby向けにendを自動挿入してくれる
-NeoBundle 'tpope/vim-endwise'
-
-" Rails向けのコマンドを提供する
-NeoBundle 'tpope/vim-rails'
-
-" unite.vimでrequireを検索"
-NeoBundle 'rhysd/unite-ruby-require.vim'
-
-"rubyキーワード補完"
-NeoBundle 'rhysd/neco-ruby-keyword-args'
-
-"補完"
-NeoBundle 'Shougo/neocomplcache.vim'
-"/Ruby=================================================="
-
-
-
-
-""""""""""""""""""""""""""""""""""""""""
-""neocomplcache.vimの設定
-""""""""""""""""""""""""""""""""""""""""""
-
-"" neocomplcache
-NeoBundle 'Shougo/neocomplcache'
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
-" Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 1
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
-" Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : ''
-    \ }
-
-NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', { 'autoload' : {
-  \ 'insert' : 1,
-  \ 'filetypes': 'ruby',
-  \ }}
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return neocomplcache#smart_close_popup() . "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-
-if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
-endif
-let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-
-" 環境変数RSENSE_HOMEに'/usr/local/bin/rsense'を指定しても動く
-let g:neocomplete#sources#rsense#home_directory = '/usr/local/bin/rsense'
-
-
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_max_list = 20
-let g:neocomplcache_enable_ignore_case = 1
-let g:neocomplcache_enable_smart_case = 1
-" demiliter for function compl
-if !exists('g:neocomplcache_delimiter_patterns')
-    let g:neocomplcache_delimiter_patterns = {}
-endif
-
-""""""""""""""""""""""""""""""""""""""""
-""//////neocomplcache.vimの設定
-""""""""""""""""""""""""""""""""""""""""""
-
-
-
-
-
-
-
-
-
-
-
-" ファイルオープンを便利に
-NeoBundle 'Shougo/unite.vim'
-" Unite.vimで最近使ったファイルを表示できるようにする
-NeoBundle 'Shougo/neomru.vim'
 
 " http://blog.remora.cx/2010/12/vim-ref-with-unite.html
 """"""""""""""""""""""""""""""
@@ -253,6 +144,3 @@ au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 """"""""""""""""""""""""""""""
 
 
-" for Java
-    NeoBundleLazy 'ervandew/eclim', {'build': {'mac': 'ant -Declipse.home=/opt/homebrew-cask/Caskroom/eclipse-java/4.4.0/eclipse -Dvim.files='.escape(expand('~/.bundle/eclim'), '')}}
-    autocmd FileType java NeoBundleSource eclim
