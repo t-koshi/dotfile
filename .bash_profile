@@ -22,6 +22,7 @@ alias emacs="open -a /Applications/Emacs.app"
 export PATH=$PATH:/usr/local/Cellar/emacs/24.4/bin/emacs
 export PATH=$PATH:~/bin
 
+PATH=$PATH:/usr/local/sbin
 
 export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
@@ -36,3 +37,9 @@ export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 perl -wle \
   'do { print qq/(setenv "$_" "$ENV{$_}")/ if exists $ENV{$_} } for @ARGV' \
   PATH > ~/.emacs.d/shellenv.el
+
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
